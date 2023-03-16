@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scratch.css">
+    <title>Submit Leave</title>
+</head>
+<body>
+    <div class="page">
+        <header id="header">Submit Leave</header><br>
+        <form>
+        <label for="name" id="lab">Name</label>
+        <input type="text" id="box" name="name" size="100"></input><br><br>
+        <label for="sd" id="lab">Start date</label>
+        <input type="text" id="box" name="sd" size="100"></input><br><br>
+        <label for="days" id="lab"># of days</label>
+        <input type="number" id="box" name="days" min="1" max="7" size="100" value=" "></input><br><br>
+        <label for="type" id="lab">Type:</label>
+        <select name="type" id="box">
+            <option value=""></option>
+            <option value="">General</option>
+            <option value="">Sick</option>
+            <option value="">Accident</option>
+            <option value="">Function</option>
+        </select><br><br>
+        <label for="photos" id="lab">Photos:</label>
+        <input type="file" id="box">
+        <div class="bt">
+        <input type="submit" id="button1" value="Submit">
+        <input type="reset" id="button2" value="Cancel"><br><br><br>
+        </div>
+    </form>
+    <a href="page1.html" id="newpage" target="_blank">Checkout Leaves</a>
+    </div>
+</body>
+</html>
