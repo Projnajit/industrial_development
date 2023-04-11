@@ -93,5 +93,5 @@ function backToHome(e)
     window.location.href('index.html');
 }
 
-
-document.querySelector(".home").addEventListener("click",backToHome);
+let back=document.getElementById("pera");
+back.addEventListener("click",backToHome);

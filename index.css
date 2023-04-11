@@ -145,8 +145,9 @@ label
 
 .home 
 {
-    margin-left: 50%;
-    margin-bottom: 60%;
+    color:red;
+    margin:auto;
+    margin-left: 92%;
     text-decoration: none;
     border-radius: 10px;
     border: 1px solid red;
@@ -286,8 +287,9 @@ tr,td
 
     .home 
     {
+        color: black;
         margin:0px;
-        margin-left: 45%;
+        margin-left: 85%;
         text-decoration: none;
         border-radius: 10px;
         border: 1px solid red;
@@ -374,8 +376,9 @@ tr,td
 
     .home 
     {
+        color:green;
         margin: 0px;
-        margin-left: 40%;
+        margin-left: 85%;
         text-decoration: none;
         border-radius: 10px;
         border: 1px solid red;
@@ -401,7 +404,7 @@ tr,td
     .home 
     {
         margin: 0px;
-        margin-left: 35%;
+        margin-left: 80%;
         text-decoration: none;
         border-radius: 10px;
         border: 1px solid red;

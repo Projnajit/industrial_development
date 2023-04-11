@@ -12,8 +12,9 @@ let tempData=JSON.parse(ss); ///CATCHING BY EDIT BUTTON
 let tempData2=JSON.parse(ss2); ///CATHING BY HOME BUTTON
 let tempIndex=JSON.parse(index);
 
-if(tempData!=null) data=tempData;
-if(tempData2!=null) data=tempData2;
+if(tempData==null && tempData2==null) data=[];
+else if(tempData!=null) data=tempData;
+else if(tempData2!=null) data=tempData2;
 
 
 if(tempIndex!=null)
@@ -45,7 +46,7 @@ function submitCall()
                 flag=false;
             }
         }
-        x.elements[i].value="";
+        //x.elements[i].value="";
     }
     if(flag) 
     {
@@ -57,20 +58,28 @@ function submitCall()
             tempIndex=null;
         }
         else data.push(object);
-        console.log(data);
+        console.log(data)
     }
 }
 
 
 
 
-///PASSING DATA-ARRAY to NEWPAGE
+//PASSING DATA-ARRAY to NEWPAGE
 document.getElementById("newpage").onclick=function()
 {
     sessionStorage.setItem('dataArray',JSON.stringify(data));
     window.location.href="checkout_leave.html";
 }
-///
+//
 
 
+
+// function gotoNewPage(e)
+// {
+//     if(!e.target.classList.contains("newpage"))  return;
+//     sessionStorage.setItem('dataArray',JSON.stringify(data));
+//     window.location.href="checkout_leave.html";
+// }
+// document.querySelectorAll(".newpage").addEventListener("click",gotoNewPage);
 
