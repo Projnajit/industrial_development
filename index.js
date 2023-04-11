@@ -46,7 +46,6 @@ function submitCall()
                 flag=false;
             }
         }
-        //x.elements[i].value="";
     }
     if(flag) 
     {
@@ -59,6 +58,8 @@ function submitCall()
         }
         else data.push(object);
         console.log(data)
+
+        for(let i=0;i<x.length;i++)  x.elements[i].value="";
     }
 }
 
