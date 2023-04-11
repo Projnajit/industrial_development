@@ -3,37 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="checkout_leave.css">
+    <link rel="stylesheet" href="index.css">
     <title>Submit Leave</title>
 </head>
 <body>
     <div class="page">
         <header id="header">Submit Leave</header><br>
-        <form>
-        <label for="name">Name</label>
-        <input type="text" id="box" name="name"></input><br><br>
-        <label for="sd">Start date</label>
-        <input type="text" id="box" name="sd"></input><br><br>
-        <label for="days"># of days</label>
-        <input type="number" id="box" name="days" min="1" max="7" value=" "></input><br><br>
-        <label for="type">Type:</label>
-        <select name="type" id="select">
-            <option value=""></option>
-            <option value="">General</option>
-            <option value="">Sick</option>
-            <option value="">Accident</option>
-            <option value="">Function</option>
-        </select><br><br>
-        <label for="photos">Photos:</label>
-        <input type="file" id="box">
+        <form id="form1" autocomplete="off">
+            <label for="name" >Name</label>
+            <input type="text" id="box" name="name" required><br><br>
+            <label for="sd">Start date</label>
+            <input type="text" id="box" name="sd" required><br><br>
+            <label for="days"># of days</label>
+            <input type="number" id="box" name="days" min="1" max="7" value=" " required><br><br>
+            <label for="type">Type:</label>
+            <select name="type" id="select">
+                <option value="a"></option>
+                <option value="General">General</option>
+                <option value="Sick">Sick</option>
+                <option value="Accident">Accident</option>
+                <option value="Function">Function</option>
+            </select><br><br>
+            <label for="photos">Photos:</label>
+            <input type="file" id="box">
+        </form>
         <div class="bt">
-        <input type="submit" id="submitButton" value="Submit">
-        <input type="reset" id="resetButton" value="Cancel"><br><br><br>
+            <button id="submitButton" onclick="submitCall()">Submit</button>
+            <button id="resetButton">Cancel</button><br><br><br>
         </div>
-    </form>
     </div>
-    <a href="checkout_leave.html" id="newpage" target="_blank">Checkout Leaves</a>
-
+    <a href="checkout_leave.html" id="newpage">Checkout Leaves</a>
+    <script src="index.js"></script>
 </body>
 </html>
