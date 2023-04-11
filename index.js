@@ -49,6 +49,7 @@ function submitCall()
     }
     if(flag) 
     {
+        alert("Your data submitted Successfully!");
         if(tempIndex!=null) 
         {
             console.log("cheeers!!!");
