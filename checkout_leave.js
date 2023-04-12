@@ -18,7 +18,6 @@ storage.forEach(obj => {
     const editButton=row.querySelector("#edit");
     editButton.addEventListener('click',(event)=>{
         let rowIndex= event.target.parentElement.parentElement.rowIndex;
-        console.log(rowIndex);
         localStorage.setItem('rIndex',JSON.stringify(rowIndex));
     })
 
@@ -54,3 +53,11 @@ function searching()
         }
     }
 }
+
+
+///REFRESHING rIndex by clicking HOME button
+const homeButton=document.getElementsByClassName('home')[0];
+console.log(homeButton);
+homeButton.addEventListener('click',()=>{
+    localStorage.setItem('rIndex',JSON.stringify(null));
+})
