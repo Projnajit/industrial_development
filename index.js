@@ -28,10 +28,12 @@ submitButtonCatch.addEventListener("click",() =>{
     if(flag) 
     {
         alert("Your data submitted Successfully!!");
-        if(index!=null) storage[index]=object;
+        if(index!=null) 
+        {
+            storage[index]=object;
+            index=null;
+        }
         else storage.push(object);
-        
-        index=null;
         localStorage.setItem('pushing',JSON.stringify(storage));
         localStorage.setItem('rIndex',JSON.stringify(index));
         form.reset();
@@ -42,8 +44,9 @@ submitButtonCatch.addEventListener("click",() =>{
 
 
 //EDIT OPTION IS ACTIVE
-if(index!=null) 
+if(index>=0) 
 {
+    index--;
     let form=document.getElementById("form1"),i=0;
     for(let key in storage[index]) form.elements[i++].value=storage[index][key];
 }

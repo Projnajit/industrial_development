@@ -17,9 +17,9 @@ storage.forEach(obj => {
     //EDIT BUTTON
     const editButton=row.querySelector("#edit");
     editButton.addEventListener('click',(event)=>{
-        const rowIndex= event.target.parentElement.parentElement.rowIndex;
+        let rowIndex= event.target.parentElement.parentElement.rowIndex;
         console.log(rowIndex);
-        localStorage.setItem('rIndex',JSON.stringify(rowIndex-1));
+        localStorage.setItem('rIndex',JSON.stringify(rowIndex));
     })
 
     //REJECT BUTTON
