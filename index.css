@@ -57,7 +57,7 @@ label
     margin-right: 5px;
     background: #c20a16;
 }
-.bt
+#bt
 {
     margin-top: 2%;
     margin-left: 56%;
@@ -110,7 +110,7 @@ label
     {
         width: 80px;
     }
-    .bt
+    #bt
     {
         margin-top: 40px;
         margin-left: 0;
@@ -208,7 +208,7 @@ tr,td
     width: 80px;
 }
 
-.accept
+#edit
 {
     text-decoration: none;
     display: block;
@@ -223,7 +223,7 @@ tr,td
     background: #0489b1;
 }
 
-.reject
+#reject
 {
     display: black;
     color:white;
@@ -255,7 +255,7 @@ tr,td
 
 @media (max-width:62em)
 {
-    .accept
+    #edit
     {
         text-decoration: none;
         display: block;
@@ -271,7 +271,7 @@ tr,td
         /* background: #0489b1; */
     }
     
-    .reject
+    #reject
     {
         display: black;
         color:white;
@@ -328,7 +328,7 @@ tr,td
         width: 40px;
     }
 
-    .accept
+    #edit
     {
         text-decoration: none;
         display: block;
@@ -346,7 +346,7 @@ tr,td
         /* background: #0489b1; */
     }
 
-    .reject
+    #reject
     {
         width: 90%;
         margin-left: 10%;

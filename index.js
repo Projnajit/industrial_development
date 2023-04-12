@@ -1,86 +1,57 @@
-let data=[];
-let x=document.forms["form1"];
-let flag=false;
+let storage=JSON.parse(localStorage.getItem('pushing')) || [];
+let index=JSON.parse(localStorage.getItem('rIndex')) || null;
+const submitButtonCatch=document.getElementById("submitButton");
 
 
 
-///CONCATENATION THE tempDATA-ARRAY WITH DATA-ARRAY
-let ss=sessionStorage.getItem('array');
-let ss2=sessionStorage.getItem('passing');
-let index=sessionStorage.getItem('rowIdx');
-let tempData=JSON.parse(ss); ///CATCHING BY EDIT BUTTON
-let tempData2=JSON.parse(ss2); ///CATHING BY HOME BUTTON
-let tempIndex=JSON.parse(index);
-
-if(tempData==null && tempData2==null) data=[];
-else if(tempData!=null) data=tempData;
-else if(tempData2!=null) data=tempData2;
-
-
-if(tempIndex!=null)
-{
-    for(let i=0;i<x.length-1;i++)
-    {
-        x.elements[i].value=data[tempIndex][i];
-    }
-}
-
-
-///PUSHING INPUTS TO DATA-ARRAY
-function submitCall()
-{
+//PRESSING SUBMIT BUTTON
+submitButtonCatch.addEventListener("click",() =>{
+    const form=document.getElementById("form1");
     let object={},flag=true;
-    for(let i=0;i<x.length;i++)
-    {   
-        object[i]=(x.elements[i].value);
-        if(flag===true && object[i]==="")
+    object["id"]=Date.now;
+    for(let i=0;i<form.length;i++)
+    {
+        object[form.elements[i].name]=form.elements[i].value;
+        if(form.elements[i].value=='') 
         {
-            alert("Fill all the given Input correctly!");
             flag=false;
+            alert("WARNING: Fill all the given Input correctly.");
+            break;
         }
-        if(i===2 && flag===true)
+        if(i==2 && (form.elements[i].value>7 || form.elements[i].value<1)) 
         {
-            if(object[i]>7 || object[i]<1)
-            {
-                alert("Make leave-day range in between (1-7) days!");
-                flag=false;
-            }
+            flag=false;
+            alert("WARNING: Make leave-day range in between (1-7) days.");
+            break;
         }
     }
     if(flag) 
     {
-        alert("Your data submitted Successfully!");
-        if(tempIndex!=null) 
-        {
-            console.log("cheeers!!!");
-            data[tempIndex]=object;
-            tempIndex=null;
-        }
-        else data.push(object);
-        console.log(data)
-
-        for(let i=0;i<x.length;i++)  x.elements[i].value="";
+        alert("Your data submitted Successfully!!");
+        if(index!=null) storage[index]=object;
+        else storage.push(object);
+        
+        index=null;
+        localStorage.setItem('pushing',JSON.stringify(storage));
+        localStorage.setItem('rIndex',JSON.stringify(index));
+        form.reset();
+        console.log(storage);
     }
-}
+});
 
 
 
-
-//PASSING DATA-ARRAY to NEWPAGE
-document.getElementById("newpage").onclick=function()
+//EDIT OPTION IS ACTIVE
+if(index!=null) 
 {
-    sessionStorage.setItem('dataArray',JSON.stringify(data));
-    window.location.href="checkout_leave.html";
+    let form=document.getElementById("form1"),i=0;
+    for(let key in storage[index]) form.elements[i++].value=storage[index][key];
 }
-//
 
 
-
-// function gotoNewPage(e)
-// {
-//     if(!e.target.classList.contains("newpage"))  return;
-//     sessionStorage.setItem('dataArray',JSON.stringify(data));
-//     window.location.href="checkout_leave.html";
-// }
-// document.querySelectorAll(".newpage").addEventListener("click",gotoNewPage);
-
+//RESET BUTTON PRESSED
+const reset=document.getElementById("resetButton");
+reset.addEventListener("click",()=>{
+    const form=document.getElementById("form1");
+    form.reset();
+});

@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="index.css">
     <title>Submit Leave</title>
+    
 </head>
 <body>
     <div class="page">
         <header id="header">Submit Leave</header><br>
         <form id="form1" autocomplete="off">
-            <label for="name" >Name</label>
+            <label for="name" >Name:</label>
             <input type="text" id="box" name="name" required><br><br>
-            <label for="sd">Start date</label>
-            <input type="text" id="box" name="sd" required><br><br>
-            <label for="days"># of days</label>
+            <label for="sd">Start date:</label>
+            <input type="text" id="box" name="starDay" required><br><br>
+            <label for="days"># of days:</label>
             <input type="number" id="box" name="days" min="1" max="7" value=" " required><br><br>
             <label for="type">Type:</label>
             <select name="type" id="select">
@@ -25,10 +26,10 @@
                 <option value="Function">Function</option>
             </select><br><br>
             <label for="photos">Photos:</label>
-            <input type="file" id="box">
+            <input type="file" name="photo" id="box">
         </form>
-        <div class="bt">
-            <button id="submitButton" onclick="submitCall()">Submit</button>
+        <div id="bt">
+            <button id="submitButton">Submit</button>
             <button id="resetButton">Cancel</button><br><br><br>
         </div>
     </div>
