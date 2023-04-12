@@ -59,5 +59,5 @@ function searching()
 const homeButton=document.getElementsByClassName('home')[0];
 console.log(homeButton);
 homeButton.addEventListener('click',()=>{
-    localStorage.setItem('rIndex',JSON.stringify());
+    localStorage.setItem('rIndex',JSON.stringify(''));
 })
