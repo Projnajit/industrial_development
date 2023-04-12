@@ -44,7 +44,7 @@ submitButtonCatch.addEventListener("click",() =>{
 
 
 //EDIT OPTION IS ACTIVE
-if(index>=0) 
+if(index!=null) 
 {
     index--;
     let form=document.getElementById("form1"),i=0;
