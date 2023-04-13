@@ -2,7 +2,6 @@ const table=document.getElementById("table1");
 let storage=JSON.parse(localStorage.getItem('pushing')) || [];
 
 
-
 //SHOWING DATA ON TABLE
 storage.forEach(obj => {
     let row=document.createElement('tr');
@@ -27,10 +26,10 @@ storage.forEach(obj => {
         let signal=confirm("Are you sure?");
         if(!signal) return;
         const rowIndex=event.target.parentElement.parentElement.rowIndex;
-        console.log(rowIndex);
         event.target.parentElement.parentElement.remove();
         storage.splice(rowIndex-1,1);
         localStorage.setItem('pushing',JSON.stringify(storage));
+        console.log(storage);
     })
 });
 
@@ -57,7 +56,14 @@ function searching()
 
 ///REFRESHING rIndex by clicking HOME button
 const homeButton=document.getElementsByClassName('home')[0];
-console.log(homeButton);
 homeButton.addEventListener('click',()=>{
+    localStorage.setItem('rIndex',JSON.stringify(''));
+})
+
+
+
+///REFRESHING rIndex by clicking HOME button
+const submitLeave=document.getElementById("button1");
+submitLeave.addEventListener('click',()=>{
     localStorage.setItem('rIndex',JSON.stringify(''));
 })
