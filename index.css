@@ -1,7 +1,59 @@
+/* INDEX PAGE */
+
+i
+{
+    color:green;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 10px;
+    visibility: hidden;
+    
+}
+small
+{
+    margin-left: 200px;
+    visibility: hidden;
+}
+
+
+
+.formControl.success input
+{
+    border: 2px solid #00C301;
+}
+.formControl.success i.fa-circle-check
+{
+    color:#00C301;
+    visibility: visible;
+}
+.formControl.success small
+{
+    color:#00C301;
+    visibility: visible;
+}
+
+
+
+.formControl.error input
+{
+    border: 2px solid #e74c3c;
+}
+.formControl.error i.fa-circle-exclamation
+{
+    color:#e74c3c;
+    visibility: visible;
+}
+.formControl.error small
+{
+    color:#e74c3c;
+    visibility: visible;
+}
+
+
 .page
 {
-    margin-top: 5%;
-    margin-left: 15%;
+    margin-top: 2%;
+    margin-left: 18%;
 }
 #header
 {
@@ -14,19 +66,19 @@
 #select
 {
     color: black;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-left: 10%;
     margin-bottom: 10px;
     padding: 5px;
     width: 51%;
     background-color: #d8bbf0;
 }
-#box
+input
 { 
     color: black;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-left: 10%;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding: 5px;
     width: 50%;
     background-color: #d8bbf0;
@@ -47,6 +99,16 @@ label
     margin-right: 5px;
     background: #1e9628;
 }
+#submitButton:hover
+{
+    background-color: #00C301;
+}
+#submitButton:disabled
+{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
 #resetButton
 {
     color:white;
@@ -57,6 +119,10 @@ label
     margin-right: 5px;
     background: #c20a16;
 }
+#resetButton:hover
+{
+    background-color: #e74c3c;
+}
 #bt
 {
     margin-top: 2%;
@@ -66,10 +132,7 @@ label
 #newpage
 {
     margin-top: 30px;
-    margin-left: 64%;
-}
-#newpage
-{
+    margin-left: 66%;
     color: rgb(62, 100, 116);
 }
 #newpage:hover
@@ -79,8 +142,15 @@ label
     background: rgb(212, 206, 206);
     border-radius: 5px;
     text-decoration: none;
-    font-size: 18px;
     font: bold;
+}
+form
+{
+    padding: 10px;
+}
+.formControl
+{
+    margin-bottom: 5px; 
 }
 
 
@@ -96,15 +166,15 @@ label
         font-size: 40px;
         margin: 0;
     }
-    #box
+    input
     {
         margin: 0;
-        width: 100%;
+        width: 75%;
     }
     #select
     {
         margin:0;
-        width: 102%;
+        width: 77%;
     }
     #lab
     {
@@ -133,6 +203,13 @@ label
     {
         width: 100%;
     }
+
+    small
+    {
+        margin-left: 85PX;
+        visibility: hidden;
+    }
+
 }
 
 
@@ -140,7 +217,7 @@ label
 
 
 
-/* page-2 */
+/* PAGE-2 */
 
 
 .home 

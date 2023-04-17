@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Submit Leave</title>
     
 </head>
@@ -11,25 +12,54 @@
     <div class="page">
         <header id="header">Submit Leave</header><br>
         <form id="form1" autocomplete="off">
-            <label for="name" >Name:</label>
-            <input type="text" id="box" name="name" required><br><br>
-            <label for="sd">Start date:</label>
-            <input type="text" id="box" name="starDay" required><br><br>
-            <label for="days"># of days:</label>
-            <input type="number" id="box" name="days" min="1" max="7" value=" " required><br><br>
-            <label for="type">Type:</label>
-            <select name="type" id="select">
-                <option value="a"></option>
-                <option value="General">General</option>
-                <option value="Sick">Sick</option>
-                <option value="Accident">Accident</option>
-                <option value="Function">Function</option>
-            </select><br><br>
-            <label for="photos">Photos:</label>
-            <input type="file" name="photo" id="box">
+            <div class="formControl">
+                <label for="name" >Name:</label>
+                <input type="text" class="inp" id="fullName" name="name" required>
+                <i class="fa-sharp fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i><br>
+                <small>Error massage</small>
+            </div>
+            <br>
+            <div class="formControl">
+                <label for="sd">Start date:</label>
+                <input type="date" class="inp" id="startDay" name="startDay" value="" required>
+                <i class="fa-sharp fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i><br>
+                <small>Error massage</small>
+            </div>
+            <br>
+            <div class="formControl">
+                <label for="days"># of days:</label>
+                <input type="number" id="days" class="inp" name="days" min="1" max="7" value=" " required>
+                <i class="fa-sharp fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i><br>
+                <small>Error massage</small>
+            </div>
+            <br>
+            <div class="formControl">
+                <label for="type">Type:</label>
+                <select name="type" class="inp" id="select">
+                    <option value=""></option>
+                    <option value="Sick">Sick</option>
+                    <option value="General">General</option>
+                    <option value="Accident">Accident</option>
+                    <option value="Function">Function</option>
+                </select>
+                <i class="fa-sharp fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i><br>
+                <small>Error massage</small>
+            </div>
+            <br>
+            <div class="formControl">
+                <label for="photos">Photos:</label>
+                <input type="file" class="inp" name="photo" id="photo">
+                <i class="fa-sharp fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i><br>
+                <small>Error massage</small>
+            </div>
         </form>
         <div id="bt">
-            <button id="submitButton">Submit</button>
+            <button disabled id="submitButton">Submit</button>
             <button id="resetButton">Cancel</button><br><br><br>
         </div>
     </div>

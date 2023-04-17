@@ -4,9 +4,10 @@ let storage=JSON.parse(localStorage.getItem('pushing')) || [];
 
 //SHOWING DATA ON TABLE
 storage.forEach(obj => {
+    console.log( obj["startDay"]);
     let row=document.createElement('tr');
     row.innerHTML = `<td>${obj.name}</td>
-                    <td>${obj.starDay}</td>
+                    <td>${obj.startDay}</td>
                     <td>${obj.days}</td>
                     <td>${obj.type}</td>
                     <td><img id="img" src=${obj.photo} alt=""></td>
@@ -62,7 +63,7 @@ homeButton.addEventListener('click',()=>{
 
 
 
-///REFRESHING rIndex by clicking HOME button
+///REFRESHING rIndex by clicking SUBMIT-LEAVE button
 const submitLeave=document.getElementById("button1");
 submitLeave.addEventListener('click',()=>{
     localStorage.setItem('rIndex',JSON.stringify(''));
