@@ -38,8 +38,6 @@ const nameValidation = (event) => {
   } else {
     nameField = true;
     event.target.parentElement.className = "formControl success";
-    let text = event.target.parentElement.querySelector("small");
-    text.innerHTML = "Success!";
     validationCheck();
   }
 };
@@ -59,8 +57,6 @@ const startDayValidate = (event) => {
   } else {
     startDayField = true;
     event.target.parentElement.className = "formControl success";
-    let text = event.target.parentElement.querySelector("small");
-    text.innerHTML = "Success!";
     validationCheck();
   }
 };
@@ -85,8 +81,6 @@ const daysValidate = (event) => {
   } else {
     daysField = true;
     event.target.parentElement.className = "formControl success";
-    let text = event.target.parentElement.querySelector("small");
-    text.innerHTML = "Success!";
     validationCheck();
   }
 };
@@ -106,8 +100,6 @@ const selectValidate = (event) => {
   } else {
     selectField = true;
     event.target.parentElement.className = "formControl success";
-    let text = event.target.parentElement.querySelector("small");
-    text.innerHTML = "Success!";
     validationCheck();
   }
 };
@@ -132,8 +124,6 @@ const validatePhoto = (event) => {
     text.innerHTML = "*Add a picture.";
   } else {
     event.target.parentElement.className = "formControl success";
-    let text = event.target.parentElement.querySelector("small");
-    text.innerHTML = "Success!";
   }
 };
 
@@ -161,6 +151,18 @@ const formListener = () => {
 
 form.addEventListener("input", formListener);
 
+
+//CLEANING THE FROM
+let cleanTheForm = () => {
+    form.reset();
+    fullName.parentElement.className = "formControl";
+    startDay.parentElement.className = "formControl";
+    days.parentElement.className = "formControl";
+    select.parentElement.className = "formControl";
+    photo.parentElement.className = "formControl";
+  };
+  
+
 //PRESSING SUBMIT BUTTON
 const submitListener = () => {
   let object = {};
@@ -174,7 +176,10 @@ const submitListener = () => {
   if (index != null) {
     storage[index] = object;
     index = null;
-  } else storage.push(object);
+  } 
+  else {
+    storage.push(object);
+  }
   localStorage.setItem("pushing", JSON.stringify(storage));
   localStorage.setItem("rIndex", JSON.stringify(index));
   cleanTheForm();
@@ -199,12 +204,3 @@ const resetListener = () => {
 const reset = document.getElementById("resetButton");
 reset.addEventListener("click", resetListener);
 
-//CLEANING THE FROM
-const cleanTheForm = () => {
-  form.reset();
-  fullName.parentElement.className = "formControl";
-  startDay.parentElement.className = "formControl";
-  days.parentElement.className = "formControl";
-  select.parentElement.className = "formControl";
-  photo.parentElement.className = "formControl";
-};
