@@ -4,7 +4,6 @@ let storage=JSON.parse(localStorage.getItem('pushing')) || [];
 
 //SHOWING DATA ON TABLE
 storage.forEach(obj => {
-    console.log( obj["startDay"]);
     let row=document.createElement('tr');
     row.innerHTML = `<td>${obj.name}</td>
                     <td>${obj.startDay}</td>
@@ -14,31 +13,42 @@ storage.forEach(obj => {
                     <td><a href="index.html" id="edit">Edit</a><input type='button' value='Reject' name=${obj.id} id="reject"/></td>`;
     table.appendChild(row);
     
+
     //EDIT BUTTON
-    const editButton=row.querySelector("#edit");
-    editButton.addEventListener('click',(event)=>{
+    const editButtonListener=(event)=>{
         let rowIndex= event.target.parentElement.parentElement.rowIndex;
         localStorage.setItem('rIndex',JSON.stringify(rowIndex));
-    })
+    }
+
+    const editButton=row.querySelector("#edit");
+    editButton.addEventListener('click',(event)=>{editButtonListener(event)});
+
 
     //REJECT BUTTON
-    const rejectButton=row.querySelector("#reject");
-    rejectButton.addEventListener('click',(event)=>{
+    const rejectButtonListener=(event)=>{
         let signal=confirm("Are you sure?");
-        if(!signal) return;
+        
+        if(!signal) 
+        {
+            return;
+        }
+
         const rowIndex=event.target.parentElement.parentElement.rowIndex;
+
         event.target.parentElement.parentElement.remove();
         storage.splice(rowIndex-1,1);
         localStorage.setItem('pushing',JSON.stringify(storage));
-        console.log(storage);
-    })
+    }
+
+    const rejectButton=row.querySelector("#reject");
+    rejectButton.addEventListener('click',(event)=>{rejectButtonListener(event)});
 });
 
 
 
 
 //SEARCHING AND SHOWING THE DATA
-function searching()
+const searching=()=>
 {
     let filter=document.getElementById("khojo").value.toUpperCase();
     let tr=table.getElementsByTagName("tr");
@@ -55,16 +65,21 @@ function searching()
 }
 
 
-///REFRESHING rIndex by clicking HOME button
+
+//REFRESHING rIndex by clicking HOME button
+const homeButtonListener=()=>{
+    localStorage.setItem('rIndex',JSON.stringify(''));
+}
+
 const homeButton=document.getElementsByClassName('home')[0];
-homeButton.addEventListener('click',()=>{
+homeButton.addEventListener('click',homeButtonListener);
+
+
+
+//REFRESHING rIndex by clicking SUBMIT-LEAVE button
+const submitLeaveListener=()=>{
     localStorage.setItem('rIndex',JSON.stringify(''));
-})
+}
 
-
-
-///REFRESHING rIndex by clicking SUBMIT-LEAVE button
 const submitLeave=document.getElementById("button1");
-submitLeave.addEventListener('click',()=>{
-    localStorage.setItem('rIndex',JSON.stringify(''));
-})
+submitLeave.addEventListener('click',submitLeaveListener);
