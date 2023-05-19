@@ -1,12 +1,11 @@
-import './App.css'
+import { useState } from "react"
+import Form from "./Form"
 
-function print()
+export default function App()
 {
-  return (
-    <>
-      <h1>Hello World</h1>
-      <p>Hi, I am react app</p>
-    </>
-  )
+    const [show,setShow]=useState(true);
+
+    return (
+        <Form />
+    )
 }
-export default print;
