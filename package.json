@@ -1,12 +1,9 @@
 {
-  "homepage": "https://Projnajit.github.io/industrial_development/tree/assignment-3",
   "name": "industrialdevelopment",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
