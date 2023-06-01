@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import '../css/Form.css'
+import { Link } from "react-router-dom";
 
 export default function Form({ handleChoice }) {
   const [fullName, setFullName] = useState('');
@@ -108,6 +109,7 @@ export default function Form({ handleChoice }) {
     if (index !== null) storage[--index] = person;
     else storage.push(person);
     localStorage.setItem('storage', JSON.stringify(storage));
+    localStorage.setItem('index', JSON.stringify(null));
     console.log(storage);
     handleReset();
   };
@@ -182,7 +184,7 @@ export default function Form({ handleChoice }) {
           <button id="resetButton" type="button" onClick={handleReset}>Cancel</button><br /><br /><br />
         </div>
       </form>
-      <a href="#" id="newpage" onClick={handleChoice}>Checkout Leaves</a>
+      <Link id='newpage' to='/checkLeave'>Checkout Leaves</Link>
     </div>
   );
 }

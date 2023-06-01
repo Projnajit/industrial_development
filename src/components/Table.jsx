@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/Table.css'
+import { Link } from 'react-router-dom';
 
 export default function Table({handleChoice}) {
 
@@ -16,7 +17,6 @@ export default function Table({handleChoice}) {
 
     const handleEdit = (index) => {
         localStorage.setItem('index',JSON.stringify(index+1));
-        handleChoice();
     };
 
     const handleReject = (event,index) => {
@@ -43,7 +43,7 @@ export default function Table({handleChoice}) {
     return (
         <div>
             <input type="text" id="khojo" onKeyUp={handleSearch} placeholder="Enter Name to Search" />
-            <a href="#" className="home" onClick={handleHome}>Home</a>
+            <Link className="home" to='/'>Home</Link>
             <br /><br />
             <table id="table1">
                 <thead>
@@ -64,14 +64,17 @@ export default function Table({handleChoice}) {
                         <td>{item.days}</td>
                         <td>{item.type}</td>
                         <td><img id="img" src={item.photo} alt="" /></td>
-                        <td><a href="#" id="edit" onClick={() => handleEdit(index)}>Edit</a><input type='button' value='Reject' id="reject" onClick={(event) => handleReject(event,index)}/></td>
+                        <td>
+                            <Link id="edit" to="/" onClick={() => handleEdit(index)}>Edit</Link>
+                            <Link id="reject" onClick={(event) => handleReject(event,index)}>Reject</Link>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
 
             </table>
             <br /><br /><br /><br />
-            <a href="#" id="button1" onClick={handleSubmitLeave}>Submit a Leave Request</a>
+            <Link id="button1" to='/'>Submit a Leave Request</Link>
         </div>
     );
 }
